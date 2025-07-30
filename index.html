@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeakPad</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-microphone-alt"></i> SpeakPad</h1>
+            <div class="header-actions">
+                <button id="clear-all" class="btn btn-danger">Clear All Notes</button>                <button id="theme-toggle" class="btn-icon" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <div class="app-container">
+            <div class="sidebar">
+                <div class="search-box">
+                    <input type="text" id="search-notes" placeholder="Search notes...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="notes-list" id="notes-list">
+                    <!-- Notes will be added here dynamically -->
+                </div>
+                <button id="add-note" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> New Note
+                </button>
+            </div>
+
+            <div class="main-content">
+                <div class="note-editor" id="note-editor">
+                    <div class="empty-state" id="empty-state">
+                        <i class="fas fa-microphone-alt"></i>
+                        <h2>No Note Selected</h2>
+                        <p>Select a note from the sidebar or create a new one</p>
+                    </div>
+                    
+                    <div class="active-note" id="active-note">
+                        <input type="text" id="note-title" placeholder="Note Title">
+                        <div class="note-content" id="note-content" contenteditable="true" placeholder="Start speaking or type here..."></div>
+                        <div class="note-actions">
+                            <button id="start-recording" class="btn btn-primary">
+                                <i class="fas fa-microphone"></i> Start Recording
+                            </button>
+                            <button id="stop-recording" class="btn btn-secondary" disabled>
+                                <i class="fas fa-stop"></i> Stop
+                            </button>
+                            <div class="recording-status" id="recording-status">
+                                <div class="pulse"></div>
+                                <span>Listening...</span>
+                            </div>
+                            <button id="save-note" class="btn btn-success">
+                                <i class="fas fa-save"></i> Save
+                            </button>
+                            <button id="delete-note" class="btn btn-danger">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </div>
+                        <div class="note-meta">
+                            <span id="note-date"></span>
+                            <span id="word-count">0 words</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="toast" id="toast"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
